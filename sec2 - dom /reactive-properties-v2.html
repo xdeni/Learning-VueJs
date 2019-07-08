@@ -1,0 +1,32 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <p>{{counter}}||{{counter1}}</p>
+    <p>{{result}}</p>
+    <button v-on:click="sum">Aumentar</button>
+    <button v-on:click="counter1++">Aumentar</button>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            counter: 0,
+            counter1: 0
+        },
+        computed: {
+            result(){
+                console.log('ola')
+                return this.counter >= 5 ?
+                    'maior ou igual a 5' :
+                    'Menor que 5'
+            }
+        },
+        methods: {
+            sum () {
+                this.counter++
+            }
+        }
+    })
+</script>
