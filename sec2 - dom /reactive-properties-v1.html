@@ -1,0 +1,20 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <p>{{title1}}</p>
+    <input type="text" v-bind:value="title1" v-on:input="title1 = $event.target.value">
+
+    <p>{{title2}}</p>
+    <input type="text" v-model="title2">
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            title1: 'Errado',
+            title2: 'Correto'
+        }
+    })
+</script>

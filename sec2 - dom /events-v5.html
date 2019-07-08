@@ -1,0 +1,26 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <p v-on:mousemove="updatePosition">
+        Mouse: {{x}} e {{y}}
+        <span v-on:mousemove.stop="">STOP EVENT!</span>
+    </p>
+    <a v-on:click.prevent="updatePosition" href="http://google.com">Google</a>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0
+        },
+        methods: {
+            updatePosition(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            }
+        }
+    })
+</script>

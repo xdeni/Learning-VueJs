@@ -1,0 +1,25 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <input v-on:keyup="displayAlert" type="text" placeholder="Any key">
+    <input v-on:keyup.enter="displayAlert" type="text" placeholder="ENTER">
+    <input v-on:keyup.enter.alt="displayAlert" type="text" placeholder="Enter + Alt">
+    <input v-on:keyup.enter.alt.shift="displayAlert" type="text" placeholder=" Enter + Alt + SHift">
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0
+        },
+        methods: {
+            displayAlert(e){
+                if(e.key == 'Dead') var key = e.code
+                alert("voce pressionou a tecla: " + (key || e.key))
+            }
+        }
+    })
+</script>

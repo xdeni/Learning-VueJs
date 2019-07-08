@@ -1,0 +1,21 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <p>{{ title }}</p>
+    <p>{{ salutation() }}</p>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            title: "Using VueJs!"
+        },
+        methods: {
+            salutation: function () {
+                return this.title
+            }
+        }
+    })
+</script>

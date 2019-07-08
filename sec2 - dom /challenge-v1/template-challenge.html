@@ -1,0 +1,23 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="challenge">
+    <!-- 1) Fill the 'P' tag bellow with your name and age - using interpolation -->
+    <p>My name is {{name}} and I'm {{yearsOld}} years old.</p>
+
+    <!-- 2) Display your age multiplied for 3 -->
+    <p>My age multiplied for three is: {{ yearsOld * 3 }}</p>
+    
+    <!-- 3) Call a function to display a random number -->
+    <p>{{randomNumber()}}</p>
+    
+    <!-- 4) Search a image on google and display in image tag -->
+    <div>
+        <img v-bind:src="image" alt="" height="400">
+    </div>
+    
+    <!-- 5) Initialize the input with your name (use the 'value' attribute) -->
+    <div>
+        <input v-bind:value='name' type="text">
+    </div>
+</div>
+<script src="app.js"></script>

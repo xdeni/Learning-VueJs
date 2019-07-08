@@ -1,0 +1,21 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <input type="text" name="" id="" v-on:input='changeTitle'>
+    <p>{{ titulo }}</p>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            titulo: "Usando VueJs!"
+        },
+        methods: {
+            changeTitle(event) {
+                this.titulo = event.target.value
+            } 
+        }
+    })
+</script>

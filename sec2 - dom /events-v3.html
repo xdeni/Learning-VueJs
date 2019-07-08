@@ -1,0 +1,32 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <p>{{ counter }}</p>
+    <button v-on:click="calc()">somar 1</button>
+    <button v-on:click="calc(-1, $event)">subtrair 1</button>
+    <button v-on:click="calc(5)">somar 5</button>
+    <button v-on:click="calc(-3)">subtrair 3</button>
+    <p v-on:mousemove="updatePosition">Mouse: {{x}} e {{y}}</p>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            counter: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            calc (quantity = 1, event) {
+                console.log(quantity, event)
+                this.counter += quantity
+            },
+            updatePosition(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            }
+        }
+    })
+</script>
