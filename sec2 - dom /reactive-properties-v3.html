@@ -1,0 +1,29 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <p>{{counter}}</p>
+    <button v-on:click="sum">Aumentar</button>
+</div>
+<!-- watch -->
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        watch: {
+            counter (after, before) {
+                setTimeout(()=> {
+                    this.counter = 0
+                }, 3000)
+                console.log(after, before)
+            }
+        },
+        methods: {
+            sum () {
+                this.counter++
+            }
+        }
+    })
+</script>

@@ -1,0 +1,20 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="challenge">
+
+    <!-- 1) Display in 'result' the value 'different value' while 
+        'value' has different of thirty-seven.
+        Show 'equal value' when 'value' equal to thirty-seven. -->
+
+    <!-- 2) Watch the changes of 'result' and restart 'value' for after of five seconds.
+        (hindt: setTimeOut(... ,5000) ) -->
+
+    <div>
+        <p>Total value: {{ value }}</p>
+        <button @click="value += 5">Somar 5</button>
+        <button @click="value += 1">Somar 1</button>
+        <p>{{result}}</p>
+    </div>
+</div>
+
+<script src="app.js"></script>
