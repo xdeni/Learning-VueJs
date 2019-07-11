@@ -5,7 +5,7 @@ new Vue({
     },
     computed: {
         result () {
-            return this.value == 37 ? 'equal value' : 'differente value'
+            return this.value == 37 ? 'equal value' : 'different value'
         }
     },
     watch: {

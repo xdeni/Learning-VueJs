@@ -1,0 +1,52 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<style>
+    #app {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background: #999;
+    }
+
+    .c1 {
+        background: red;
+    }
+
+    .c2 {
+        background: green;
+    }
+
+    .c3 {
+        background: blue;
+    }
+</style>
+
+<div id="app">
+    <div class="demo" @click="activeC1 = !activeC1" :class="duplicatedActive"></div>
+    <div class="demo" @click="activeC2 = !activeC2" :class="{c2: activeC2}"></div>
+    <div class="demo" @click="activeC3 = !activeC3" :class="{c3: activeC3}"></div>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            activeC1: false,
+            activeC2: false,
+            activeC3: false
+        },
+        computed: {
+            duplicatedActive(){
+                return { 
+                    c1: this.activeC1,
+                    c2: !this.activeC1
+                }
+            }
+        }
+    })
+</script>
