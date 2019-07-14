@@ -1,0 +1,46 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="challenge">
+    
+    <!-- 1) Call the button for toggle the exhibition of two paragraphs.
+    Use both v-if and v-show and inspect the elements to see the difference. -->
+
+    <h2>#01</h2>
+    <div>
+        <button @click="showing = !showing">Toggle</button>
+        <p v-if="showing">You want see me ...</p>
+        <p v-if="!showing">...ou eu</p>
+        <p v-show="showing">You want see me ... </p>
+        <p v-show="!showing">...ou eu</p>
+    </div>
+
+    <!-- 2) Display in a <ul> a array of elements. Print too the index of each element. -->
+        
+    <h2>#02</h2>
+    <ul>
+        <li v-for="el,index in elements">{{el}} - {{index}}</li>
+    </ul>
+
+    <!-- 3) Print all the pair of key-value of object below. (book) 
+        Print too the index of each item.-->
+
+    <h3>#03</h3>
+    <ul>
+        <li v-for="value, key in book">{{key}} = {{value}}</li>
+    </ul>
+
+    <!-- Print the below object "student" (just values) and too create a nested loop for the array. -->
+
+    <h3>#04</h3>
+    <ul>
+        <template v-for="value, key in student">
+            <template v-if="Array.isArray(value)">
+                <li v-for="val in value">{{val}}</li>
+            </template>
+            <li v-else>{{value}}</li>
+        </template>
+    </ul>
+
+
+</div>
+<script src="app.js"></script>

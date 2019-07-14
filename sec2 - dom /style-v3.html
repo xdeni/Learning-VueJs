@@ -1,0 +1,54 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<style>
+    .boxes {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background: #999;
+    }
+
+    .c1 {
+        background: red;
+    }
+
+    .c2 {
+        background: green;
+    }
+
+    .c3 {
+        background: blue;
+    }
+
+    .rotate {
+        transform: rotate(45deg)
+    }
+</style>
+
+<div id="app">
+    <div class="boxes">
+        <div class="demo" :class="style"></div>
+        <div class="demo" :class="style"></div>
+        <div class="demo" @click="rotate = !rotate" :class="[style, {rotate: rotate}]"></div>
+    </div>
+    <select name="" id="" v-model="style">
+        <option value="c1">Vermelho</option>
+        <option value="c2">Verde</option>
+        <option value="c3">Azul</option>
+    </select>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            style: 'c1',
+            rotate: false
+        }
+    })
+</script>

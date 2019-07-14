@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    
+    <ul>
+        <li v-for="person in people">
+            <div v-for="value, key in person">{{key}}: {{value}}</div>
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            people: [
+                { name: 'Adenilson', age: 21, profession: 'Software Engiiner', birth_year: 1997},
+                { name: 'Yuri', age: 23, profession: 'Software Engiiner 1', birth_year: 1995},
+                { name: 'Samuel', age: 20, profession: 'Marketing', birth_year: 1998},
+                { name: 'Paulo', age: 24, profession: 'Software Engiiner 2', birth_year: 1994, cpf: '00000000'},
+            ]
+        }
+    })
+</script>

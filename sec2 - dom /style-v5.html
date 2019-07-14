@@ -1,0 +1,65 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<style>
+    .boxes {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background: #999;
+    }
+</style>
+
+<div id="app">
+    <div class="boxes">
+        <div class="demo" :style="style"></div>
+    </div>
+
+    <hr>
+
+    <select name="" id="" v-model="midDiv.backgroundColor">
+        <option value="gray">Gray</option>
+        <option value="red">Vermelho</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+    </select>
+    <label for="width">Width</label>
+    <input type="number" id="width" v-model="midDiv.width">
+    <label for="height">Height</label>
+    <input type="number" id="height" v-model="midDiv.height">
+    <label for="borderRadius">Border Radius</label>
+    <input type="number" id="borderRadius" v-model="midDiv.borderRadius">
+
+    <hr>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            bg_color: 'gray',
+            rotate: false,
+            custom_color: 'gray',
+            midDiv: {
+                backgroundColor: 'gray',
+                width: '100',
+                height: '100',
+                borderRadius: '0'
+            }
+        },
+        computed: {
+            style () {
+                return {
+                    backgroundColor: this.midDiv.backgroundColor,
+                    width: this.midDiv.width,
+                    height: this.midDiv.height,
+                    borderRadius: this.midDiv.borderRadius + '%'
+                }
+            }
+        }
+    })
+</script>

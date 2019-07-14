@@ -1,0 +1,67 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link rel="stylesheet" href="style.css">
+
+<div id="challenge">
+
+    <!-- 1) Start the execution of effect using button. The effect should alternately change the classes 'spotlight'
+    and 'shrink' for each call of setInterval. Use the div below with id "effect" to associate the CSS classes. -->
+
+    <h2>#01</h2>
+    <div>
+        <button @click="startEvent">Start Event</button>
+        <br><br>
+        <div id="effect" :class="[{shrink: actualClass}, {spotlight: !actualClass}]"></div>
+    </div>
+    <hr>
+
+    <!-- 2) Create two CSS classes and associate the div using array syntax. -->
+
+    <h2>#02</h2>
+    <div>
+        <input type="text">
+        <div :class="['shrink', 'spotlight']"></div>
+    </div>
+    <hr>
+
+    <!-- 3) Apply in div below the informed class by user (create example CSS class) -->
+
+    <h2>#03</h2>
+    <div>
+        <input type="text" v-model="classByUser">
+        <div id="effect" :class="classByUser"></div>
+    </div>
+    <hr>
+
+    <!-- 4) Apply in div below  the informed class by user another class using the value true/false
+    (create example CSS class) -->
+
+    <h2>#04</h2>
+    <div>
+        <input type="text" @input="setDanger">
+        <div id="effect" :class="[{danger}]"></div>
+    </div>
+    <hr>
+
+    <!-- 5) Repeat question 3 but using style instead class -->
+    
+    <h2>#05</h2>
+    <div>
+        <input type="text" v-model="colorByUser">
+        <div id="effect" :style="{backgroundColor: colorByUser}"></div>
+    </div>
+    <hr>
+
+    <!-- 6) Create a simple progress bar with setInterval and style binding -->
+
+    <h2>#06</h2>
+    <div>
+        <button @click="startProgress">Start</button>
+        <div id="progressBar">
+            <div class="progress" :style="{width}"></div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="app.js"></script>

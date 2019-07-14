@@ -1,0 +1,44 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<style>
+    .boxes {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .demo {
+        width: 200px;
+        height: 200px;
+        background: #999;
+    }
+</style>
+
+<div id="app">
+    <div class="boxes">
+        <div class="demo" :style="{'background-color': bg_color}"></div>
+        <div class="demo" :style="{'background-color': custom_color}"></div>
+        <div class="demo"></div>
+    </div>
+
+    <hr>
+
+    <select name="" id="" v-model="bg_color">
+        <option value="gray">Gray</option>
+        <option value="red">Vermelho</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+    </select>
+    <input type="text" v-model="custom_color">
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            bg_color: 'gray',
+            rotate: false,
+            custom_color: 'gray'
+        }
+    })
+</script>

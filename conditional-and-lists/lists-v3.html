@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    
+    <ul>
+        <template v-for="cor, index in colors">
+            <p :style="{color: cor}">{{cor}}</p>
+            <p :style="{color: cor}">{{index}}</p>
+        </template>
+    </ul>
+
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            colors: ['red', 'yellow', 'blue', 'green', 'brown', 'purple', 'dodgerblue']
+        }
+    })
+</script>

@@ -1,0 +1,50 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link rel="stylesheet" href="style.css">
+<div id="app">
+   
+    <header>
+        <div class="perfil">
+            <strong>{{player.name}}</strong>
+            <p>Level: {{player.level}}</p>
+            <div class="life"  :style="{width: player.life + '%'}">
+            </div>
+        </div>
+        <div class="perfil">
+            <strong>{{monster.name}}</strong>
+            <p>Level: {{monster.level}}</p>
+            <div class="life" :style="{width: monster.life + '%'}">
+            </div>
+        </div>
+    </header>
+
+    <div id="panel">
+        <template v-if="champion">
+            {{champion}}
+            <button @click="restart">Restart Game</button>
+        </template>
+        <template v-else-if="escape">
+            <span>Você desistiu!</span>
+            <button @click="restart">Restart Game</button>
+        </template>
+        <template v-else>
+            <button @click="attack">Attack</button>
+            <button @click="heal">Heal</button>
+            <button @click="super_attack">Super Attack</button>
+            <button @click="escape = !escape">Escape</button>
+        </template>
+        
+    </div>
+
+    <footer>
+        <ul>
+            HISTÓRICO
+            <template v-for="log in fight_log">
+                <li v-if="log.damage == 'heal'" :style="{backgroundColor:log.color}"> Você foi curado</li>
+                <li v-else :id="log.id" :style="{backgroundColor:log.color}">{{log.type == 'monster_damage' ? 'O monstro atingiu você com ' : 'Você atingiu o monstro com'}} {{log.damage}} de dano.</li>
+            </template>
+        </ul>
+    </footer>
+
+</div>
+<script src="app.js"></script>
