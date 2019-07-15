@@ -1,0 +1,27 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+   
+</div>
+
+<script>
+    const vm = new Vue ({
+        template: `
+            <div>
+                <strong ref="myTitle">{{title}}</strong>
+                <button @click="add"></button>
+            </div>
+        `,
+        data: {
+            title: 'Olá'
+        },
+        methods: {
+            add () {
+                this.title += '!!'
+            }
+        }
+    })
+
+    vm.$mount("#app")
+</script>

@@ -1,0 +1,37 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app1">
+   <strong>{{title}}</strong>
+   <button @click="add"></button>
+</div>
+<div id="app2">
+    <strong>{{title}}</strong>
+    <button @click="add"></button>
+</div>
+
+<script>
+    const vm1 = new Vue ({
+        el: '#app1',
+        data: {
+            title: 'Olá'
+        },
+        methods: {
+            add () {
+                vm2.title += '!!'
+            }
+        }
+    })
+
+    const vm2 = new Vue ({
+        el: '#app2',
+        data: {
+            title: 'Bem vindo'
+        },
+        methods: {
+            add () {
+                vm1.title += '??'
+            }
+        }
+    })
+</script>

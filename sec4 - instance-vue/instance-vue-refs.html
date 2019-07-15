@@ -1,0 +1,25 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+   <strong ref="myTitle">{{title}}</strong>
+   <button @click="add"></button>
+</div>
+
+<script>
+    const vm = new Vue ({
+        el: '#app',
+        data: {
+            title: 'Olá'
+        },
+        methods: {
+            add () {
+                this.title += '!!'
+            }
+        }
+    })
+
+    console.log(vm.$refs.myTitle)
+    vm.$refs.myTitle = 'aaa'
+    console.log(vm.$refs.myTitle)
+</script>

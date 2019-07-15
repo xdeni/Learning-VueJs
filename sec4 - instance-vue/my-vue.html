@@ -1,0 +1,47 @@
+<!-- production version, optimized for size and speed -->
+<div id="app">
+   <strong>{{title}}</strong>
+   <button>{{name}}</button>
+   <button>{{2+1}}</button>
+</div>
+
+<script>
+    function MeowVue (params) {
+        this.$el    = document.querySelector(params.el)
+        this.$data  = params.data
+
+        for(let attr in this.$data) {
+            Object.defineProperty(this, attr, {
+                get: () => {
+                    return this.$data[attr]
+                },
+                set: (value) => {
+                    this.$data[attr] = value 
+                    updateView()
+                }
+            })
+        }
+
+        const regex = /\{\{([\s\w}{,.+*-/]*)\}\}/g
+        const updateView = () => {
+            this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+                const value = this[$1.trim()]
+                return value ? value : eval($1)
+            })
+        }
+        
+    }
+
+    const vm = new MeowVue ({
+        el: '#app',
+        data: {
+            title: 'Olá',
+            name: 'Adenilson'
+        }
+    })
+
+    console.log(vm.title, vm.title)
+
+    vm.title = 'ola 2'
+    console.log(vm.title)
+</script>

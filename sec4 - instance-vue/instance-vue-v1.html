@@ -1,0 +1,25 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app1">
+   <strong>{{title}}</strong>
+</div>
+<div id="app2">
+   <strong>{{title}}</strong>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app1',
+        data: {
+            title: 'Olá'
+        }
+    })
+
+    new Vue ({
+        el: '#app2',
+        data: {
+            title: 'Bem vindo'
+        }
+    })
+</script>
