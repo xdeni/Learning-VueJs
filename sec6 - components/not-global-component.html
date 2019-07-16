@@ -1,0 +1,48 @@
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+    <Counter></Counter>
+    <Counter></Counter>
+    <Counter></Counter>
+</div>
+
+<div id="app2">
+    <app-counter></app-counter>
+    <app-counter></app-counter>
+    <app-counter></app-counter>
+</div>
+
+<script>
+    counter = {
+        template: `
+            <div>
+                <strong>{{counter}}</strong>
+                <button @click="counter += 1">Sum</button>
+                <button @click="counter -= 1">Subtract</button>
+            </div>
+        `,
+        data () {
+            return {
+                counter: 0
+            }
+        }
+    }
+    Vue.component("counter", {
+       
+    })
+
+    new Vue ({
+        el: '#app',
+        components: {
+            counter
+        }
+    })
+
+    new Vue ({
+        el: '#app2',
+        components:{
+            'app-counter': counter
+        }
+    })
+</script>
