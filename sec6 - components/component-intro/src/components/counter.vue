@@ -26,6 +26,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    button {
+        background: chocolate;
+        border-radius: 50%;
+        padding: 15px;
+    }
 </style>

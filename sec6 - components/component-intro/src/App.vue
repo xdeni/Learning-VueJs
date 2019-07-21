@@ -1,8 +1,8 @@
 <template>
 <div>
-  <Counter/>
-  <Counter/>
-  <Counter/>
+  <Counters/>
+  <button>oi</button>
+  <Counter />
 </div>
 </template>
 
